@@ -41,3 +41,48 @@ python3 -m http.server 8000
 ```
 
 then visit `http://localhost:8000`.
+
+
+=================================================================================
+
+Sure, man. Here’s the **remaining checklist** from where we are now:
+
+### ✅ DONE — Website
+
+* [x] Portfolio design/content
+* [x] GitHub repository
+* [x] GitHub Pages deployment
+* [x] `dawitzeleke.com` domain
+* [x] `www.dawitzeleke.com`
+* [x] DNS configuration
+* [x] HTTPS / SSL
+* [x] Enforce HTTPS
+* [x] Canonical URL → `https://dawitzeleke.com`
+* [x] Open Graph URL → `https://dawitzeleke.com`
+* [x] All website links tested
+
+### ✅ DONE — Google
+
+* [x] Google Search Console property created
+* [x] Domain ownership verified
+* [x] TXT verification record added
+* [x] Search Console dashboard working
+
+### 🟡 OPTIONAL — Google SEO
+
+* [ ] **URL Inspection → request indexing** for `https://dawitzeleke.com/`
+* [ ] Wait for Google to collect search data (Search Console currently says data is processing and to check again in about a day). 
+* [ ] Later check whether your site appears in Google Search
+
+### 🟢 OPTIONAL — Professional finishing
+
+* [ ] Add website URL to LinkedIn
+* [ ] Add website URL to résumé/CV
+* [ ] Add website to email signature
+* [ ] Make sure Google Scholar / ResearchGate / LinkedIn links are correct
+* [ ] Eventually review Google search appearance
+
+**Bottom line:** Nothing is broken or incomplete. Your portfolio is **live and ready to share now**.
+
+The only thing I'd personally do next is **URL Inspection → Request Indexing**. After that, you're done.
+
