@@ -30,6 +30,26 @@
     --accent:#3C6E52;
     --accent-soft:#DCEAE1;
   }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#15150F;
+      --surface:#1C1C15;
+      --ink:#EDEBDF;
+      --ink-muted:#918D7B;
+      --line:#2E2D22;
+      --accent:#6FA687;
+      --accent-soft:#1E2E22;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#15150F;
+    --surface:#1C1C15;
+    --ink:#EDEBDF;
+    --ink-muted:#918D7B;
+    --line:#2E2D22;
+    --accent:#6FA687;
+    --accent-soft:#1E2E22;
+  }
 
   *{box-sizing:border-box;}
   html{scroll-padding-top:70px;}
@@ -174,6 +194,9 @@
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
+      <button class="icon-btn" id="theme-toggle" aria-label="Toggle dark mode">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+      </button>
     </div>
   </div>
 </header>
@@ -196,9 +219,9 @@
     <a class="scholar-link" href="https://scholar.google.com/citations?user=a0nkU10AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar &#8599;</a>
 
     <div class="stats">
-      <div class="stat"><div class="stat-value">10+</div><div class="stat-label">years of Industrial experience</div></div>
+      <div class="stat"><div class="stat-value">10+</div><div class="stat-label">years of Industrial<br>experience</div></div>
       <div class="stat"><div class="stat-value">5+</div><div class="stat-label">research works</div><div class="stat-sub">2026 &middot; PhD research began</div></div>
-      <div class="stat"><div class="stat-value">IEEE</div><div class="stat-label">Senior Member grade &middot; Dallas</div></div>
+      <div class="stat"><div class="stat-value">IEEE</div><div class="stat-label">Senior Member grade &middot;<br>Dallas</div></div>
     </div>
   </div>
 
@@ -311,12 +334,24 @@
   (function(){
     try{
       var root=document.documentElement;
+      var btn=document.getElementById('theme-toggle');
+      var stored=localStorage.getItem('theme-pref');
+      if(stored){root.setAttribute('data-theme',stored);}
+
       var headerEl=document.querySelector('header');
       function syncScrollOffset(){
         if(headerEl){root.style.scrollPaddingTop=(headerEl.offsetHeight+12)+'px';}
       }
       syncScrollOffset();
       window.addEventListener('resize',syncScrollOffset);
+
+      btn.addEventListener('click',function(){
+        var current=root.getAttribute('data-theme');
+        var isDark = current ? current==='dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var next = isDark ? 'light' : 'dark';
+        root.setAttribute('data-theme',next);
+        try{localStorage.setItem('theme-pref',next);}catch(e){}
+      });
     }catch(e){}
   })();
 </script>
